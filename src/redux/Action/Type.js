@@ -1,0 +1,1 @@
+export const GET_TOKEN_USER = 'GET_TOKEN_USER'
