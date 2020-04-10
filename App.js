@@ -25,7 +25,7 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import HomeScreen from './src/components/Home/Index';
+import Home from './src/components/Home/Index';
 import LoginScreen from './src/components/Authentification/Login'
 
 const Stack = createStackNavigator();
@@ -33,14 +33,15 @@ const Stack = createStackNavigator();
 const App: () => React$Node = () => {
   return (
     <>
-      <Provider store={store}>
+      {/* <Provider store={store}>
         <NavigationContainer>
           <Stack.Navigator>
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="Login" component={LoginScreen} />
           </Stack.Navigator>
         </NavigationContainer>
-      </Provider>
+      </Provider> */}
+      <Home />
     </>
   );
 };

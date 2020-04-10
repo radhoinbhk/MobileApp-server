@@ -78,7 +78,7 @@ export default function Home(props) {
     <View>
       <ScrollView>
         <View style={{ width: screenWidth, paddingTop: 20, paddingLeft: 30 }}>
-          <Button mode="contained" style={{ width: 130 }} onPress={props.navigation.navigate('Login')}>
+          <Button mode="contained" style={{ width: 170 }} >
             connecter
         </Button>
         </View>
