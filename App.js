@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const user = require('./routes/User.route');
+const demande = require('./routes/Demande.route');
+const reponse = require('./routes/Reponse.route');
 
 // initialize our express app
 const app = express();
@@ -22,6 +24,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/user', user);
+app.use('/demande', demande);
+app.use('/reponse', reponse);
 
 
 let port = 3000;

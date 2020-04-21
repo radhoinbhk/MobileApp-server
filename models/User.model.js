@@ -12,6 +12,7 @@ let UserSchema = new Schema({
     State: { type: String, required: true },
     Delegation: { type: String, required: true },
     Adresse: { type: String, required: true },
+    TypeUser: { type: String, required: true },
     DateNaissance: { type: String, required: false },
     Infecté: { type: Boolean, required: false },
     PosteAutorite: { type: String, required: false },

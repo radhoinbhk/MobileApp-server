@@ -10,7 +10,7 @@ let StatistiqueSchema = new Schema({
     Morts: {type: String, required: true},
     State: {type: String, required: true},
     Delegation: {type: String, required: true},
-    CINUser: {type: Schema.Types.ObjectId, ref: 'user' ,required: true},
+    idUser: {type: Schema.Types.ObjectId, ref: 'user' ,required: true},
 });
 
 

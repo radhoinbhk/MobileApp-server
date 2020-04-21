@@ -6,7 +6,7 @@ let AutorisationSortieSchema = new Schema({
     HeureDeSortie: { type: Date, required: true },
     MotifDeSortie: { type: String, required: true },
     Destination: { type: String, required: true },
-    CINUser: { type: Schema.Types.ObjectId, ref: 'user', required: true },
+    idUser: { type: Schema.Types.ObjectId, ref: 'user', required: true },
 });
 
 

@@ -23,7 +23,7 @@ exports.getAllUser = function (req, res) {
 exports.user_update = function (req, res) {
     let filter = { "CIN": req.body.CIN }
     let update = req.body.update
-    
+
     UserService.findUserAndUpdate(filter, update)
         .then(result => result ? res.send('User update successfully') : res.status(400).json({ message: 'User not update successfully' }))
         .catch(err => next(err))
@@ -72,6 +72,7 @@ exports.user_signup = function (req, res) {
             Nmobile: req.body.Nmobile,
             State: req.body.State,
             Delegation: req.body.Delegation,
+            TypeUser: req.body.TypeUser,
             DateNaissance: req.body.DateNaissance,
             Infecté: req.body.Infecté,
             PosteAutorite: req.body.PosteAutorite,

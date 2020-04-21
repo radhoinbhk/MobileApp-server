@@ -15,7 +15,7 @@ const checkSignup =
         check("Code_Postal").isNumeric(),
         check("Code_Postal").isLength({ min: 4, max: 4 }),
         check("Email").isEmail(),
-        check("Nmobile").isNumeric(),
+        check("Nmobile").isString(),
         check("State").isString(),
         check("Delegation").isString(),
         check("Infecté").isBoolean(),
