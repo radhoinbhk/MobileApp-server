@@ -4,8 +4,13 @@
 module.exports = {
     authenticate,
     findUserByFilter,
-    findUserAndUpdate
+    findUserAndUpdate,
+    findAssociation
 };
+
+function findAssociation(filter) {
+    return User.find({Nom : {$regex: filter }})
+}
 
 function authenticate(CIN, passwordUser) {
     return User.findOne({

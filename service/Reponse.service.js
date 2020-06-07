@@ -7,7 +7,7 @@ module.exports = {
 };
 
 function SelectAllReponseWithFilter(filter) {
-    return Reponse.find(filter);
+    return Reponse.find(filter).populate('idUser');
 }
 
 function AddReponseService(reponse) {

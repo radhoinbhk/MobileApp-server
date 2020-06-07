@@ -2,8 +2,21 @@ const Demande = require('../models/Demande.model');
 const DemandeService = require('../service/Demande.service');
 
 
-exports.getAllDemande = function (req, res) {
-    DemandeService.SelectAllDemande()
+
+exports.AddStatusUserJoin = function (req, res) {
+    DemandeService.AddStatusUserJoin(req.body)
+        .then((result) => result ? res.send(result) : res.status(400).json({ message: 'en peux pas add status utilisateur joind' }))
+        .catch(error => res.status(500).json({ message: error }))
+};
+
+exports.AddUserJoin = function (req, res) {
+    DemandeService.AddUserJoin(req.body)
+        .then((result) => result ? res.send(result) : res.status(400).json({ message: 'en peux pas add utilisateur joind' }))
+        .catch(error => res.status(500).json({ message: error }))
+};
+
+exports.getDemandeWithFilter = function (req, res) {
+    DemandeService.SelectAllDemandeWithFilter(req.body)
         .then((result) => result ? res.send(result) : res.status(400).json({ message: 'en peux pas sélectionner les demandes' }))
         .catch(error => res.status(500).json({ message: error }))
 };

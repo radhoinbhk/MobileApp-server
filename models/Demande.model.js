@@ -10,7 +10,9 @@ let DemandeSchema = new Schema({
     State: { type: String, required: true },
     Delegation: { type: String, required: true },
     Adresse: { type: String, required: true },
-    idUser: {type: Schema.Types.ObjectId, ref: 'user' ,required: true},
+    userJoin: [{ type: Schema.Types.ObjectId, ref: 'user', required: false }],
+    userJoinWithStatus: [{ type: Object, required: false }],
+    idUser: { type: Schema.Types.ObjectId, ref: 'user', required: true },
 });
 
 
