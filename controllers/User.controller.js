@@ -4,6 +4,13 @@ const { check, validationResult, body } = require('express-validator');
 const jwt = require('jsonwebtoken');
 const SECRET_KEY = "JWT_SECRET";
 
+
+exports.getAssociation = function (req, res) {
+    UserService.findAssociation(req.params.filter)
+        .then(result => result ? res.send(result) : res.status(400).json({ message: 'association not found' }))
+        .catch(err => next(err))
+};
+
 /**
  * get all users
  */
@@ -28,6 +35,7 @@ exports.user_update = function (req, res) {
         .then(result => result ? res.send('User update successfully') : res.status(400).json({ message: 'User not update successfully' }))
         .catch(err => next(err))
 };
+
 
 /**
  * signin controllers
