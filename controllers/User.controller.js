@@ -11,6 +11,16 @@ exports.getAssociation = function (req, res) {
         .catch(err => next(err))
 };
 
+
+/**
+ * get User With Filter
+ */
+exports.getUserWithFilter = function (req, res) {
+    UserService.findUserByFilter(req.body.filter)
+        .then((result) => result ? res.send(result) : res.status(400).json({ message: 'en peux pas sélectionner les utilisateur' }))
+        .catch(error => res.status(500).json({ message: error }))
+};
+
 /**
  * get all users
  */
@@ -30,7 +40,6 @@ exports.getAllUser = function (req, res) {
 exports.user_update = function (req, res) {
     let filter = { "CIN": req.body.CIN }
     let update = req.body.update
-
     UserService.findUserAndUpdate(filter, update)
         .then(result => result ? res.send('User update successfully') : res.status(400).json({ message: 'User not update successfully' }))
         .catch(err => next(err))
