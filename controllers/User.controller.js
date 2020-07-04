@@ -4,6 +4,23 @@ const { check, validationResult, body } = require('express-validator');
 const jwt = require('jsonwebtoken');
 const SECRET_KEY = "JWT_SECRET";
 
+
+exports.getAssociation = function (req, res) {
+    UserService.findAssociation(req.params.filter)
+        .then(result => result ? res.send(result) : res.status(400).json({ message: 'association not found' }))
+        .catch(err => next(err))
+};
+
+
+/**
+ * get User With Filter
+ */
+exports.getUserWithFilter = function (req, res) {
+    UserService.findUserByFilter(req.body.filter)
+        .then((result) => result ? res.send(result) : res.status(400).json({ message: 'en peux pas sélectionner les utilisateur' }))
+        .catch(error => res.status(500).json({ message: error }))
+};
+
 /**
  * get all users
  */
@@ -23,11 +40,11 @@ exports.getAllUser = function (req, res) {
 exports.user_update = function (req, res) {
     let filter = { "CIN": req.body.CIN }
     let update = req.body.update
-
     UserService.findUserAndUpdate(filter, update)
         .then(result => result ? res.send('User update successfully') : res.status(400).json({ message: 'User not update successfully' }))
         .catch(err => next(err))
 };
+
 
 /**
  * signin controllers
@@ -61,6 +78,7 @@ exports.user_signin = function (req, res) {
  * SignUP controllers
  */
 exports.user_signup = function (req, res) {
+    console.log("req",req);
     let user = new User(
         {
             CIN: req.body.CIN,
@@ -74,7 +92,7 @@ exports.user_signup = function (req, res) {
             Delegation: req.body.Delegation,
             TypeUser: req.body.TypeUser,
             DateNaissance: req.body.DateNaissance,
-            Infecté: req.body.Infecté,
+            // Infecté: req.body.Infecté,
             PosteAutorite: req.body.PosteAutorite,
             Adresse: req.body.Adresse,
         }

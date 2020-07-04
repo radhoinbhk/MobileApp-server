@@ -3,7 +3,6 @@ const ReponseService = require('../service/Reponse.service');
 
 
 exports.getAllReponseWithFilter = function (req, res) {
-    console.log("getAllReponseWithFilter", req.body.filter);
     ReponseService.SelectAllReponseWithFilter(req.body.filter)
         .then((result) => result ? res.send(result) : res.status(400).json({ message: 'en peux pas sélectionner les reponse' }))
         .catch(error => res.status(500).json({ message: error }))
