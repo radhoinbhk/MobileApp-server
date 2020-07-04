@@ -12,7 +12,7 @@ const app = express();
 app.use(cors())
 
 // Set up mongoose connection
-let dev_db_url = 'mongodb://127.0.0.1:27017/data_base_pfe';
+let dev_db_url = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/data_base_pfe';
 let mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
