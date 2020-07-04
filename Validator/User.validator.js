@@ -13,7 +13,7 @@ exports.checkSignup = function (params) {
         check("Nmobile").isString(),
         check("State").isString(),
         check("Delegation").isString(),
-        check("Infecté").isBoolean(),
+        // check("Infecté").isBoolean(),
         check("CIN").isLength({ min: 8, max: 8 }),
         body("CIN").custom(value => userService.findUserByFilter({ "CIN": value }).then(user => {
             if (user) {

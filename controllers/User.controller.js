@@ -78,6 +78,7 @@ exports.user_signin = function (req, res) {
  * SignUP controllers
  */
 exports.user_signup = function (req, res) {
+    console.log("req",req);
     let user = new User(
         {
             CIN: req.body.CIN,
@@ -91,7 +92,7 @@ exports.user_signup = function (req, res) {
             Delegation: req.body.Delegation,
             TypeUser: req.body.TypeUser,
             DateNaissance: req.body.DateNaissance,
-            Infecté: req.body.Infecté,
+            // Infecté: req.body.Infecté,
             PosteAutorite: req.body.PosteAutorite,
             Adresse: req.body.Adresse,
         }
