@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const { check, body } = require('express-validator');
+// const { check, body } = require('express-validator');
 
 // Require the controllers WHICH WE DID NOT CREATE YET!!
 const user_controller = require('../controllers/User.controller');
-const user_validator = require('../Validator/User.validator');
+// const user_validator = require('../Validator/User.validator');
 
 
 
