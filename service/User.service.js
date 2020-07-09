@@ -20,6 +20,7 @@ function authenticate(CIN, passwordUser) {
 }
 
 function findUserByFilter(filter) {
+    console.log("filter",filter);
     return User.findOne(filter)
 }
 
