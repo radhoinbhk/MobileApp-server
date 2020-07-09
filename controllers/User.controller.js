@@ -16,7 +16,7 @@ exports.getAssociation = function (req, res) {
  * get User With Filter
  */
 exports.getUserWithFilter = function (req, res) {
-    UserService.findUserByFilter(req.body.filter)
+    UserService.findUserByFilter(req.body)
         .then((result) => result ? res.send(result) : res.status(400).json({ message: 'en peux pas sélectionner les utilisateur' }))
         .catch(error => res.status(500).json({ message: error }))
 };
